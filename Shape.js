@@ -16,6 +16,18 @@ class Shape {
 	update() {
 		this.x = this.x + this.xVel;
 		this.y = this.y + this.yVel;
+
+		// change oscillator frequency based x axis
+		let freq = map(this.x, -100, 100, 440, 660);
+		this.osc.freq(freq);
+		
+		// change oscillator amplitude based y axis
+		let amp = map(this.y, -100, 100, 0.2, 0.1);
+		this.osc.amp(amp);
+
+		// change oscillator panning based z axis
+		let pan = map(this.z, -100, 100, 0.9, 0.1);
+		this.osc.pan(pan);
 	}
 	
 	display() {
