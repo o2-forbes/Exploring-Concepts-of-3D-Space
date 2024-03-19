@@ -6,7 +6,7 @@ let sphere1
 let inconsolata;
 
 function preload() {
-	inconsolata = loadFont('Inconsolata-Regular.ttf');
+	inconsolata = loadFont('./static/Inconsolata-Regular.ttf');
   }
 
 function setup() {
@@ -23,6 +23,10 @@ function setup() {
 
 function draw() {
 	background(0);
+  if (getAudioContext().state !== 'running') {
+    fill(255);
+      text('tap to start', 0, 0);
+  }
 	ambientLight(255,255,255);
 
 	rotateY(count);

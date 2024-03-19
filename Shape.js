@@ -7,6 +7,10 @@ class Shape {
 
 		this.xVel = random(0.1,1);
 		this.yVel = random(0.1,1);
+
+		this.osc =  new p5.Oscillator('sine');
+		this.osc.amp(0.2);
+		this.osc.start();
 	}
 	
 	update() {
