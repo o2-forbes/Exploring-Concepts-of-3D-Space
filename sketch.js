@@ -1,8 +1,10 @@
 let negEdge = -100;
 let posEdge = 100;
 let count = 0;
+
 let shape1;
 let sphere1
+
 let inconsolata;
 
 function preload() {
@@ -11,14 +13,15 @@ function preload() {
 
 function setup() {
 	createCanvas(500,500, WEBGL);
-  shape1 = new Shape(random(negEdge,posEdge), random(negEdge,posEdge), random(negEdge,posEdge));
-  sphere1 = new Sphere(random(negEdge,posEdge), random(negEdge,posEdge), random(negEdge,posEdge));
-
+  
   let cnv = createCanvas(500,500, WEBGL);
   cnv.mousePressed(userStartAudio);
   textFont(inconsolata);
   textSize(width / 20);
   textAlign(CENTER, CENTER);
+
+  shape1 = new Shape(random(negEdge,posEdge), random(negEdge,posEdge), random(negEdge,posEdge));
+  sphere1 = new Sphere(random(negEdge,posEdge), random(negEdge,posEdge), random(negEdge,posEdge));
 }
 
 function draw() {

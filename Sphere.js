@@ -10,12 +10,28 @@ class Sphere extends Shape {
 		this.xVel = random(1,5);
 		this.yVel = random(1,5);
 		this.zVel = random(1,5);
+
+        this.osc =  new p5.Oscillator('sine');
+		this.osc.amp(0.2);
+		this.osc.start();
 	}
 
 	update() {
 		this.x += random(-this.xVel, this.xVel);
 		this.y += random(-this.yVel, this.yVel);
 		this.z += random(-this.zVel, this.zVel);
+
+        // change oscillator frequency based x axis
+		let freq = map(this.x, -100, 100, 440, 660);
+		this.osc.freq(freq);
+				
+		// change oscillator amplitude based y axis
+		let amp = map(this.y, -100, 100, 0.2, 0.1);
+		this.osc.amp(amp);
+		
+		// change oscillator panning based z axis
+		let pan = map(this.z, -100, 100, 0.9, 0.1);
+		this.osc.pan(pan);
 	}
 
 	display() {
